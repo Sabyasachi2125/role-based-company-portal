@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+
+# Test files (development only)
+test_*.js
+*_test.js
+check_*.py
+generate_*.js
+update_*.py
+setup_*.py
+test_*.py
+
+# Database files
+*.db
+*.sqlite
+
+# Build artifacts
+dist/
+build/

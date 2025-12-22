@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Fixed Top Navbar -->
+    <nav class="top-navbar">
+        <div class="nav-brand">
+            <h1>Company Portal</h1>
+        </div>
+        <div class="nav-user-info" id="top-user-info">
+            <!-- User info will be populated dynamically -->
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Navigation will be populated dynamically -->
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <section id="login-section" class="container">
+                <div class="card">
+                    <h2>Login</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="username">Username <span class="required">*</span></label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password <span class="required">*</span></label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" id="login-btn">Login</button>
+                    </form>
+                    <div id="login-message"></div>
+                </div>
+            </section>
+
+            <section id="dashboard-section" class="container hidden">
+                <div class="dashboard-header">
+                    <h2>Dashboard</h2>
+                </div>
+                <div id="dashboard-content">
+                    <!-- Dashboard content will be populated dynamically -->
+                </div>
+            </section>
+
+            <section id="transactions-section" class="container hidden">
+                <div class="section-header">
+                    <h2>Transaction Register</h2>
+                </div>
+                <div id="transactions-content">
+                    <!-- Transactions content will be populated dynamically -->
+                </div>
+            </section>
+
+            <section id="bills-section" class="container hidden">
+                <div class="section-header">
+                    <h2>Bill Register</h2>
+                </div>
+                <div id="bills-content">
+                    <!-- Bills content will be populated dynamically -->
+                </div>
+            </section>
+
+            <section id="advances-section" class="container hidden">
+                <div class="section-header">
+                    <h2>Advance Register</h2>
+                </div>
+                <div id="advances-content">
+                    <!-- Advances content will be populated dynamically -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Confirm Action</h3>
+            <p id="modal-message">Are you sure you want to proceed?</p>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="modal-confirm" class="btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
