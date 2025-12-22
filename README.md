@@ -1,243 +1,134 @@
-# Company Portal
+🏢 Role-Based Company Portal
+A production-ready internal company portal designed to replace Excel-based financial record management with a secure, role-based web application.
+The system supports Admin and Employee roles, enforces backend-level RBAC, and ensures real-time data consistency using a centralized database.
+________________________________________
+🚀 Key Features
 
-A role-based company portal for managing records, replacing Excel-based systems with a secure, scalable web application.
+👑 Admin
+•	Full CRUD access to:
+o	Transactions
+o	Bills
+o	Employee Advances
+•	Edit and update records with immediate reflection for employees
+•	Dashboard with summary insights
+•	Backend-enforced role permissions
+•	Secure session management
 
-## Features
-
-- **Role-Based Access Control**: Separate permissions for employees and admins
-- **Record Management**: Three core registers (Transactions, Bills, Advances)
-- **Secure Authentication**: Session-based auth with bcrypt password hashing
-- **Data Integrity**: MySQL database with proper relationships
-- **Responsive UI**: Clean, professional frontend interface
-
-## Tech Stack
-
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Backend**: Node.js, Express.js
-- **Database**: MySQL
-- **Authentication**: Express-session, Bcrypt
-
-## User Roles
-
-### Employee
-- Login
-- Add new records only
-- View own submitted records
-- Cannot edit or delete any existing data
-
-### Admin
-- Login
-- Add, edit, delete any record
-- View all employee records
-- Manage users (optional)
-
-## Modules / Registers
-
-### 1. Transaction Register
-- Transaction ID
-- Date
-- Description
-- Amount
-- Entered By (Employee ID)
-
-### 2. Bill Register
-- Bill Number
-- Vendor Name
-- Date
-- Amount
-- Status (Paid / Pending)
-
-### 3. Advance Register
-- Employee ID
-- Advance Amount
-- Date
-- Remaining Due
-
-## Security Features
-
-- Role-based route protection (middleware)
-- SQL injection prevention
-- Password hashing with bcrypt
-- Session timeout (2 hours)
-- Access denial on unauthorized routes
-- No hard-coded credentials
-- Environment variables for secrets
-
-## Prerequisites
-
-- Node.js (v14 or higher)
-- MySQL (v5.7 or higher)
-- npm (comes with Node.js)
-
-## Setup Instructions
-
-### 1. Clone the Repository
-
-```bash
-git clone <repository-url>
-cd company-portal
-```
-
-### 2. Install Dependencies
-
-Make sure you have Node.js installed on your system. Then install the project dependencies:
-
-```bash
-npm install
-```
-### 3. Set Up the Database
-
-You can set up the database in two ways:
-
-#### Option 1: Using the Python Script (Recommended)
-
-1. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-2. Update the `.env` file with your database credentials (see Environment Variables section below)
-
-3. Test the database connection (optional but recommended):
-```bash
-python test_db_connection.py
-```
-
-4. Run the setup script:
-```bash
-python setup_database.py
-```
-#### Option 2: Manual SQL Import
-
-1. Create a MySQL database:
-```sql
-CREATE DATABASE company_portal;
-```
-
-2. Update the `.env` file with your database credentials (see Environment Variables section below)
-
-3. Run the database schema:
-```sql
--- Use the schema from database/schema.sql
-```
-### 4. Configure Environment Variables
-
-Create a `.env` file in the project root based on `.env.example`:
-
-```env
-# Database Configuration
-DB_HOST=localhost
-DB_USER=your_mysql_username
-DB_PASSWORD=your_mysql_password
-DB_NAME=company_portal
-
-# Session Configuration
-SESSION_SECRET=your_random_secret_key_here
-
-# Server Configuration
-PORT=3000
-```
-
-Update the `DB_USER` and `DB_PASSWORD` fields with your MySQL credentials.
-### 5. Start the Application
-
-For development:
-```bash
-npm run dev
-```
-
-For production:
-```bash
-npm start
-```
-
-The application will be available at `http://localhost:3000`
-
-## Default Users
-
-After setting up the database with the provided schema, you can log in with these credentials:
-
-### Admin
-- Username: `admin`
-- Password: `admin123`
-
-### Employees
-- Username: `employee1`
-- Password: `emp123`
-
-- Username: `employee2`
-- Password: `emp123`
-
-**Note**: Please change these default passwords in a production environment.
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/login` - Login
-- `POST /api/auth/logout` - Logout
-- `GET /api/auth/me` - Get current user
-
-### Transactions
-- `POST /api/transactions` - Create transaction
-- `GET /api/transactions` - Get all transactions
-- `GET /api/transactions/:id` - Get transaction by ID
-- `PUT /api/transactions/:id` - Update transaction (admin only)
-- `DELETE /api/transactions/:id` - Delete transaction (admin only)
-
-### Bills
-- `POST /api/bills` - Create bill
-- `GET /api/bills` - Get all bills
-- `GET /api/bills/:id` - Get bill by ID
-- `PUT /api/bills/:id` - Update bill (admin only)
-- `DELETE /api/bills/:id` - Delete bill (admin only)
-
-### Advances
-- `POST /api/advances` - Create advance
-- `GET /api/advances` - Get all advances
-- `GET /api/advances/:id` - Get advance by ID
-- `PUT /api/advances/:id` - Update advance (admin only)
-- `DELETE /api/advances/:id` - Delete advance (admin only)
-
-## Project Structure
-
-```
+👤 Employee
+•	Add new records
+•	View own transactions, bills, and advances
+•	Read-only access to sensitive data
+•	Restricted from editing or deleting records
+________________________________________
+🔐 Security & Access Control
+•	Session-based authentication
+•	Password hashing using bcrypt
+•	Backend-enforced Role-Based Access Control (RBAC)
+•	SQL injection prevention via parameterized queries
+•	Environment-based configuration (.env)
+•	Single source of truth via MySQL database
+________________________________________
+🛠 Tech Stack
+Frontend
+•	HTML5
+•	CSS3
+•	Vanilla JavaScript
+Backend
+•	Node.js
+•	Express.js
+Database
+•	MySQL
+Authentication
+•	express-session
+•	bcrypt
+________________________________________
+📁 Project Structure
 company-portal/
-│
 ├── backend/
 │   ├── config/
 │   ├── controllers/
-│   ├── routes/
 │   ├── middleware/
 │   ├── models/
+│   ├── routes/
 │   ├── app.js
 │   └── server.js
-│
 ├── frontend/
 │   ├── css/
 │   ├── js/
 │   └── index.html
-│
 ├── database/
 │   └── schema.sql
-│
 ├── .env.example
+├── .gitignore
 ├── README.md
-└── package.json
-```
-
-## Development
-
-To contribute to this project:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Support
-
-For support, please contact the development team or open an issue in the repository.
+├── package.json
+└── requirements.txt
+________________________________________
+⚙️ Setup Instructions
+1️⃣ Clone Repository
+git clone https://github.com/Sabyasachi2125/role-based-company-portal.git
+cd role-based-company-portal
+________________________________________
+2️⃣ Database Setup
+CREATE DATABASE company_portal;
+Import schema:
+mysql -u root -p company_portal < database/schema.sql
+________________________________________
+3️⃣ Environment Configuration
+Create a .env file inside backend/:
+PORT=3000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=company_portal
+SESSION_SECRET=your_secret_key
+________________________________________
+4️⃣ Install Dependencies & Run Server
+cd backend
+npm install
+npm start
+________________________________________
+5️⃣ Access Application
+http://localhost:3000
+________________________________________
+🧪 Functional Highlights
+•	Admin edits are instantly reflected in employee views
+•	Employees are restricted at API level
+•	UI adapts dynamically based on role
+•	Toast notifications and loading states for better UX
+•	Clean, enterprise-style dashboard layout
+________________________________________
+📸 Screenshots
+Add screenshots here (recommended):
+•	Login Page
+•	Admin Dashboard
+•	Transactions Table
+•	Edit Record Modal
+•	Employee Read-Only View
+________________________________________
+🎯 Use Case
+Designed for internal company use to manage:
+•	Financial transactions
+•	Vendor bills
+•	Employee advances
+Ideal replacement for Excel-based workflows with better security, traceability, and usability.
+________________________________________
+🧠 What This Project Demonstrates
+•	Real-world backend RBAC implementation
+•	Secure session handling
+•	Clean MVC architecture
+•	Database-driven consistency
+•	Professional UX polish
+•	Production-ready project structuring
+________________________________________
+📌 Future Enhancements (Optional)
+•	Audit log viewer (Admin)
+•	CSV / Excel export
+•	Pagination at database level
+•	Deployment (Render / Railway / VPS)
+________________________________________
+🏁 Final Note
+This project was built with a real-world internal application mindset, focusing on security, data integrity, and usability rather than just CRUD functionality.
+________________________________________
+⭐ If you like this project, feel free to ⭐ the repository!
+________________________________________
