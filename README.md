@@ -103,17 +103,27 @@ ________________________________________
 ### 🔐 Login Page
 ![Login Page](screenshots/login.png)
 
+
+
 ### 👑 Admin Dashboard
 ![Admin Dashboard](screenshots/admin-dashboard.png)
+
+
 
 ### 📊 Transactions Management
 ![Transactions](screenshots/transactions.png)
 
+
+
 ### Bill Management
 ![Bills](screenshots/bills.png)
 
+
+
 ### Employee advance Management
 ![Employee Advances](screenshots/advances.png)
+
+
 
 ### 👀 View Record
 ![View Record](screenshots/view-record.png)
@@ -121,8 +131,12 @@ ________________________________________
 ### ✏️ Edit Record
 ![Edit Record](screenshots/edit-record.png)
 
+
+
 ### 👤 Employee View (Read-Only)
 ![Employee View](screenshots/employee-view.png)
+
+
 
 ### Recent Activity
 ![Recent Activity](screenshots/recent-activity.png)
