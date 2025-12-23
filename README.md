@@ -98,13 +98,34 @@ ________________________________________
 •	Toast notifications and loading states for better UX
 •	Clean, enterprise-style dashboard layout
 ________________________________________
-📸 Screenshots
-Add screenshots here (recommended):
-•	Login Page
-•	Admin Dashboard
-•	Transactions Table
-•	Edit Record Modal
-•	Employee Read-Only View
+##📸 Screenshots
+
+### 🔐 Login Page
+![Login Page](screenshots/login.png)
+
+### 👑 Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### 📊 Transactions Management
+![Transactions](screenshots/transactions.png)
+
+### Bill Management
+![Bills](screenshots/bills.png)
+
+### Employee advance Management
+![Employee Advances](screenshots/advances.png)
+
+### 👀 View Record
+![View Record](screenshots/view-record.png)
+
+### ✏️ Edit Record
+![Edit Record](screenshots/edit-record.png)
+
+### 👤 Employee View (Read-Only)
+![Employee View](screenshots/employee-view.png)
+
+### Recent Activity
+![Recent Activity](screenshots/recent-activity.png)
 ________________________________________
 🎯 Use Case
 Designed for internal company use to manage:
